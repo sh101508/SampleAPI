@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
         /// </summary>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<AnnouncementsUserView> GetAnnouncementsAsync()
+        public async Task<AnnouncementsUserView> GetAnnouncementsAsync([FromQuery] GetSomethingParam.Query queryParam)
         {
             Task.Delay(100).Wait();
 
@@ -124,5 +124,18 @@ namespace WebApplication1.Controllers
         }
 
         public int Id { get; init; }
+    }
+
+    public sealed class GetSomethingParam
+    {
+        public sealed class Query
+        {
+            /// <summary>
+            /// ¼ÐÃD
+            /// </summary>
+            public string? Title { get; set; }
+            public DateTimeOffset? StartAt { get; set; }
+            public DateTimeOffset? EndAt { get; set; }
+        }
     }
 }
