@@ -2,6 +2,8 @@
 
 namespace WebApplication1.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class WrongSampleController : ControllerBase
     {
 
